@@ -1,71 +1,40 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout.main')
 
-        <title>Laravel</title>
+@section('title', 'HDC Events')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+@section('content')
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+<h1> Hello World </h1>
 
-            .full-height {
-                height: 100vh;
-            }
+<img src="img/banner.jpg" alt="banner">
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+@if(5 < 10)
+    <p> A condição é true</p>
+@endif
 
-            .position-ref {
-                position: relative;
-            }
+@if ($name == "Luara")
+    <p> {{ $name }} </p>
+@else
+    <p> O nome é {{ $name }} tem {{ $years }} anos de idade e a sua profissão é {{ $profissao }} </p>
+@endif
+<p> {{ $name }}</p>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+<p> {{ $years }} </p>
 
-            .content {
-                text-align: center;
-            }
+@for($i = 0; $i < count($arr); $i++)
+    <p> {{ $arr [$i] }} </p>
+@endfor
 
-            .title {
-                font-size: 84px;
-            }
+@php
+    $n = "Bianca";
+    echo($n);
+@endphp
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <h1> Hello World </h1>
-        <a href="/contact"> Contato </a>
-    </body>
-</html>
+@foreach($names as $name)
+    <p> {{ $loop->index }} <!-- mostra o indece -->
+        {{ $name }}
+    </p>
+@endforeach
+<a href="/contact"> Contato </a>
+<a href="/search"> Busca </a>
+@endsection
